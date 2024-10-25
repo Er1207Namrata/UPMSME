@@ -1,0 +1,15 @@
+﻿:root {
+    --body-font-family: "Plus Jakarta Sans", Helvetica;
+    --body-font-weight: 400;
+    --body-font-size: 16px;
+    --body-letter-spacing: 0.08px;
+    --body-line-height: 139.9999976158142%;
+    --body-font-style: normal;
+    --heading-font-family: "Plus Jakarta Sans", Helvetica;
+    --heading-font-weight: 700;
+    --heading-font-size: 40px;
+    --heading-letter-spacing: -1.6px;
+    --heading-line-height: 60px;
+    --heading-font-style: normal;
+    --variable-collection-primary: rgba(249, 115, 22, 1);
+}

@@ -1,0 +1,288 @@
+.main_popup1 {
+    width: 100%;
+    margin: auto;
+    padding: 5px;
+    background-color: rgb(167, 199, 188);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adjust the shadow as needed */
+    border-radius: 8px;
+    /* Optional: Adds rounded corners */
+    padding: 20px;
+    /* Optional: Adds some space inside the popup */
+    background-color: #fff;
+}
+
+.cross {
+    align-items: right;
+    text-align: right;
+}
+
+    .cross i {
+        font-size: 25px;
+        background-color: #ffffff;
+        /* Adjust the size of the icon */
+        cursor: pointer;
+        /* Change cursor to pointer to indicate it's clickable */
+        color: #333;
+        /* Icon color */
+        border: 2px solid white;
+        /* Add a white border around the icon */
+        border-radius: 50%;
+        /* Optional: make the border circular */
+        padding: 7px;
+        /* Add space between the icon and the border */
+        margin-bottom: 5px;
+        border-radius: 50%;
+    }
+
+
+.container-abhi {
+    background-color: #F97316;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+    .container-abhi h1 {
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+.logo_container {
+    display: flex;
+    background-color: #FFFFFF;
+    justify-content: space-between;
+    /* Center align logos horizontally */
+    align-items: center;
+    /* Center align logos vertically */
+    padding: 5px;
+    /* Add some padding around the container */
+}
+
+    .logo_container img {
+        width: 80px;
+        /* Set a fixed width for all logos */
+        height: auto;
+        /* Maintain aspect ratio */
+        max-height: 80px;
+        /* Optional: constrain the height to maintain uniformity */
+    }
+
+.pop_footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-block: 5px;
+    padding: 0.5rem;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.footer_lef {
+    width: 100%;
+}
+
+.login_info {
+    padding: 5px;
+    border: 1px solid #F97316;
+    background-color: rgba(249, 115, 22, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 5px;
+}
+
+    .login_info p {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+.button_grp {
+    display: flex;
+}
+
+.button_grp {
+    margin-top: 20px;
+    display: flex;
+}
+
+    .button_grp button {
+        width: 50%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        background-color: #F97316;
+        border: 1px solid #F97316;
+        border-radius: 5px;
+        color: #FFFFFF;
+    }
+
+.btnAlign {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.btn-warning {
+    padding-left: 20px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #F97316;
+    border: 1px solid #F97316;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.footer_right_scanner {
+    width: 25%;
+}
+
+/* Extra Small Devices (Phones, 600px and down) */
+@media (max-width: 600px) {
+    .main_popup {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .logo_container img {
+        width: 60px;
+    }
+
+    .poster_heading h1 {
+        font-size: 1.2rem;
+    }
+
+    .poster_heading p {
+        font-size: 1rem;
+    }
+
+    .pop_footer {
+        background-color: #FFFFFF;
+        flex-direction: column;
+    }
+
+    .button_grp {
+        margin-bottom: 20px;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+    }
+
+        .button_grp button {
+            font-size: 0.9rem;
+            max-width: 120px;
+        }
+
+    .footer_right_scanner img {
+        max-width: 120px;
+    }
+}
+
+/* Small Devices (Tablets, 601px to 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .main_popup {
+        width: 90%;
+    }
+
+    .logo_container img {
+        width: 70px;
+    }
+
+    .poster_heading h1 {
+        font-size: 1.3rem;
+    }
+
+    .poster_heading p {
+        font-size: 1.1rem;
+    }
+
+    .button_grp button {
+        font-size: 1rem;
+    }
+
+    .footer_right_scanner img {
+        max-width: 140px;
+    }
+}
+
+/* Medium Devices (Small Laptops, 769px to 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .main_popup {
+        width: 80%;
+    }
+
+    .logo_container img {
+        width: 80px;
+    }
+
+    .poster_heading h1 {
+        font-size: 1.4rem;
+    }
+
+    .poster_heading p {
+        font-size: 1.2rem;
+    }
+
+    .button_grp button {
+        font-size: 1.1rem;
+    }
+
+    .footer_right_scanner img {
+        max-width: 150px;
+    }
+}
+
+/* Large Devices (Desktops, 993px to 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+    .main_popup {
+        width: 70%;
+    }
+
+    .logo_container img {
+        width: 80px;
+    }
+
+    .poster_heading h1 {
+        font-size: 1.5rem;
+    }
+
+    .poster_heading p {
+        font-size: 1.3rem;
+    }
+
+    .button_grp button {
+        font-size: 1.2rem;
+    }
+
+    .footer_right_scanner img {
+        max-width: 160px;
+    }
+}
+
+/* Extra Large Devices (Large Desktops, 1201px and up) */
+@media (min-width: 1201px) {
+    .main_popup {
+        width: 50%;
+    }
+
+    .logo_container img {
+        width: 80px;
+    }
+
+    .poster_heading h1 {
+        font-size: 1.5rem;
+    }
+
+    .poster_heading p {
+        font-size: 1.3rem;
+    }
+
+    .button_grp button {
+        font-size: 1.2rem;
+    }
+
+    .footer_right_scanner img {
+        max-width: 160px;
+    }
+}

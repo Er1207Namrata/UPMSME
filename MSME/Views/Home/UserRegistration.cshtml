@@ -1,0 +1,355 @@
+﻿@model MSME.Models.Home.UserRegistrationModel
+@addTagHelper *, DNTCaptcha.Core
+@{
+    ViewData["Title"] = "Registration Form";
+}
+<!-- DNT captcha display referesg button -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!--DNT Captcha Refresh-->
+<script src="~/MainAssets/js/jquery.unobtrusive-ajax.js"></script>
+
+@*//for validation*@
+@*<script src="~/MainAssets/lib/jquery/dist/jquery.js"></script>*@
+<script src="~/MainAssets/assets/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/MainAssets/assets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+@*sweet alert*@
+
+<link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+
+<link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+@if (TempData["success"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Success!", '@TempData["success"]', "success");
+        };
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Failed!", '@TempData["error"]', "error");
+        };
+    </script>
+}
+@if (TempData["warning"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Warning!", '@TempData["warning"]', "warning");
+        };
+    </script>
+}
+
+@*upper case*@
+<script type="text/javascript">
+    function upperCaseF(a) {
+        setTimeout(function () {
+            a.value = a.value.toUpperCase();
+        }, 1);
+    }
+</script>
+
+
+@* <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-6/assets/css/login-6.css"> *@
+<!-- Loader -->
+<div class="spinnermodal" id="progressbar" style="display: none; z-index: 10001">
+    <div style="position: fixed; z-index: 10001; top: 50%; left: 50%; height:65px">
+        <img src="~/images/loader.svg" alt="Loading..." />
+    </div>
+</div>
+<!-- End Loader -->
+<section>
+    &nbsp;
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
+                <div class="card bg-body-tertiary border-1 shadow-sm rounded-4">
+                    <div class="card-body p-3 p-md-4 p-xl-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <h3>User Registration</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="regForm">
+                            <div class="row gy-2 overflow-hidden">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input asp-for="Name" type="text" class="form-control" placeholder="Name" required>
+                                        <label asp-for="Name" class="form-label"></label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input asp-for="EmailId" type="email" class="form-control" placeholder="name@example.com" required>
+                                        <label asp-for="EmailId" class="form-label"></label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input asp-for="ContactNo" type="text" class="form-control" placeholder="ContactNo" required>
+                                        <label asp-for="ContactNo" class="form-label"></label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input asp-for="OrganisationName" type="text" class="form-control" placeholder="OrganisationName" required>
+                                        <label asp-for="OrganisationName" class="form-label"></label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <dnt-captcha asp-captcha-generator-max="999999"
+                                                     asp-captcha-generator-min="111111"
+                                                     asp-captcha-generator-language="English"
+                                                     asp-captcha-generator-display-mode="ShowDigits"
+                                                     asp-use-relative-urls="true"
+                                                     asp-placeholder="Enter Captcha"
+                                                     asp-validation-error-message="Please enter the security code."
+                                                     asp-font-name="Tahoma"
+                                                     asp-font-size="20"
+                                                     asp-fore-color="#333333"
+                                                     asp-back-color="#ccc"
+                                                     asp-text-box-class="text-box form-control"
+                                                     asp-text-box-template="<span class='input-group-prepend'><span class='form-group-text'></span></span>{0}"
+                                                     asp-validation-message-class="text-danger"
+                                                     asp-refresh-button-class="fas fa-redo btn-sm"
+                                                     asp-use-noise="false" />
+                                    </div>
+                                </div>
+                                @*  <div class="col-12">
+                                <div class="form-floating">
+                                <input asp-for="Captcha" type="text" class="form-control" placeholder="Captcha" required>
+                                <label asp-for="Captcha" class="form-label"></label>
+                                </div>
+                                </div> *@
+                                <div class="col-12">
+                                    <div class="d-block text-md-center">
+                                        <input id="btnRegister" class="btn  btn-warning" type="button" value="Register" />
+                                        <input class="btn  btn-secondary" type="submit" value="Login" asp-action="Login" formnovalidate />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Start Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            @*<button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>*@
+                                            <h4 class="modal-title" id="myModalLabel">Verify OTP</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label style="font-weight:bold" asp-for="OTP"> </label><span class="tx-danger"> *</span>
+                                                    <input type="text" asp-for="EmailVerificationCode" class="form-control" maxlength="6" />
+                                                    <span class="parsley-errors-list filled" asp-validation-for="OTP"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            @*<button id="btncancel" type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>*@
+                                            <button id="btnok" type="button" class="btn btn-primary anchorDetail">Validate OTP AND SUBMIT</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Modal -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*send mobile and email otp*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnRegister").click(function () {
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            var mobileReg = /^(0|91)?[6-9][0-9]{9}$/;
+            var sdata = $("#regForm").serialize();
+            var res = false;
+            if (sdata != null) {
+                if ($('#Name').val() == "") {
+                    swal("Warning!", "Please Enter Name", "warning");
+                    $('#FNameirstName').focus();
+                }
+                else if ($('#EmailId').val() == "") {
+                    swal("Warning!", "Please enter email-id", "warning");
+                    $('#EmailId').focus();
+                }
+                else if (!emailReg.test($('#EmailId').val())) {
+                    swal("Warning!", "Please enter valid email-id", "warning");
+                    $('#EmailId').focus();
+                }
+                else if ($('#ContactNo').val() == "") {
+                    swal("Warning!", "Please Enter ContactNo", "warning");
+                    $('#ContactNo').focus();
+                }
+                else if (!mobileReg.test($("#ContactNo").val())) {
+                    swal("Warning!", "Please Enter Valid mobileno", "warning");
+                    $('#ContactNo').focus();
+                }
+                else if ($('#OrganisationName').val() == null || $('#OrganisationName').val() == "") {
+                    swal("Warning!", "Please Enter Organization Name", "warning");
+                    $('#OrganisationName').focus();
+                }
+                else if ($('#DNTCaptchaInputText').val() == "") {
+                    swal("Warning!", "Please Enter Captcha", "warning");
+                    $('#Captcha').focus();
+                }
+                else {
+                    showLoader();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/UserRegistration',
+                        data: sdata,
+                        success: function (response) {
+                            if (response.res == true) {
+                                hideLoader();
+                                $('#EmailVerificationCode').val('');
+                                $('#EmailVerificationCode').val(response.otp);
+                                $('#myModal').modal('show');
+                            }
+                            else {
+                                $("#dntCaptchaRefreshButton").trigger("click");
+                                swal("Failed!", response.msg, "error");
+                                hideLoader();
+                                
+                            }
+                        }
+                    });
+                }
+            }
+            else {
+                swal("Failed!", "data not found", "error");
+            }
+        });
+    });
+</script>
+
+@* popup cancel button click*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btncancel").click(function () {
+            $('#OTP').val('');
+            $('#myModal').modal('hide');
+        });
+    });
+</script>
+@*popup ok button click*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnok").click(function () {
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            var mobileReg = /^(0|91)?[6-9][0-9]{9}$/;
+            var sdata = $("#regForm").serialize();
+            var res = false;
+            if (sdata != null) {
+                if ($('#Name').val() == "") {
+                    swal("Warning!", "Please Enter Name", "warning");
+                    $('#FNameirstName').focus();
+                }
+                else if ($('#EmailId').val() == "") {
+                    swal("Warning!", "Please enter email-id", "warning");
+                    $('#EmailId').focus();
+                }
+                else if (!emailReg.test($('#EmailId').val())) {
+                    swal("Warning!", "Please enter valid email-id", "warning");
+                    $('#EmailId').focus();
+                }
+                else if ($('#ContactNo').val() == "") {
+                    swal("Warning!", "Please Enter ContactNo", "warning");
+                    $('#ContactNo').focus();
+                }
+                else if (!mobileReg.test($("#ContactNo").val())) {
+                    swal("Warning!", "Please Enter Valid mobileno", "warning");
+                    $('#ContactNo').focus();
+                }
+                else if ($('#OrganisationName').val() == null || $('#OrganisationName').val() == "") {
+                    swal("Warning!", "Please Enter Organization Name", "warning");
+                    $('#OrganisationName').focus();
+                }
+                else if ($('#DNTCaptchaInputText').val() == "") {
+                    swal("Warning!", "Please Enter Captcha", "warning");
+                    $('#Captcha').focus();
+                }
+                else if ($('#EmailVerificationCode').val() == "") {
+                    swal("Warning!", "Please enter otp", "warning");
+                    $('#myModal').modal('show');
+                    $('#EmailVerificationCode').focus();
+                }
+                // else if ($('#MobileVerificationCode').val() == "") {
+                //     swal("Warning!", "Please enter mobile otp", "warning");
+                //     $('#myModal').modal('show');
+                //     $('#MobileVerificationCode').focus();
+                // }
+                else {
+                    showLoader();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/VerifyUserRegistration',
+                        data: sdata,
+                        success: function (response) {
+                            if (response.res == true) {
+                                hideLoader();
+                                $('#myModal').modal('hide');
+                                swal({
+                                    title: "Success!",
+                                    text: response.msg,
+                                    type: "success",
+                                    confirmButtonColor: "#00B4B4"
+                                }).then(() => { window.location = "@Url.Action("UserRegistration", "Home")" });
+                            }
+                            else {
+                                swal("Failed!", response.msg, "error");
+                                hideLoader();
+                            }
+                        }
+                    });
+                }
+            }
+            else {
+                swal("Failed!", "data not found", "error");
+            }
+        });
+    });
+
+</script>
+
+@* loader *@
+<style>
+    .spinnermodal {
+        background-color: #FFFFFF;
+        height: 100%;
+        left: 0;
+        opacity: 0.5;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100000;
+    }
+</style>
+<script>
+    function showLoader() {
+        $("#progressbar").css("display", "");
+    }
+
+    function hideLoader() {
+        setTimeout(function () {
+            $("#progressbar").css("display", "none");
+        }, 1000);
+    }
+</script>

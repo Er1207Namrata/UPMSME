@@ -1,0 +1,546 @@
+﻿/* Quick Links Css*/
+.quick-image {
+    background-image: url('/images/mask-group.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    background-size: cover;
+}
+
+.quick-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    .quick-text h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .quick-text p {
+        margin: 5px 0 0;
+        font-size: 1rem;
+        max-width: 60%;
+    }
+
+    .quick-text h1 {
+        font-size: 3em;
+    }
+
+
+
+.card-data {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    padding-inline: 30px;
+    border: 2px solid #00000026;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-1 {
+    height: 50px;
+    width: 80px;
+}
+.img-2{
+    height:80px;
+    width:80px;
+}
+.img-3 {
+    height: 50px;
+    width: 55px;
+}
+.img-4 {
+    height: 60px;
+    width: 70px;
+}
+.img-5 {
+    height: 60px;
+    width: 70px;
+}
+.img-6 {
+    height: 50px;
+    width: 50px;
+}
+.img-7 {
+    height: 60px;
+    width: 80px;
+}
+.img-8 {
+    height: 30px;
+    width:40px;
+}
+.img-9 {
+    height: 60px;
+    width: 70px;
+}
+.img-10 {
+    height: 70px;
+    width: 70px;
+}
+.logo-img img {
+    
+    margin-bottom: 10px;
+}
+
+.description h3 {
+    margin-bottom: 5px;
+    color: #213430;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+
+
+.visit-btn {
+    background: none;
+    border: none;
+    color: #F97316;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    margin-top: 5px;
+}
+
+    .visit-btn:hover {
+        text-decoration: underline; /* Optional: adds underline on hover */
+    }
+
+    .visit-btn .arrow {
+        margin-left: 5px; /* Space between text and arrow */
+        font-size: 18px; /* Slightly larger arrow */
+    }
+
+/*.mt-1 {
+    margin-top: 1rem;
+}*/
+
+
+.container-data {
+    display: grid;
+    gap: 4rem;
+    padding: 20px;
+    margin: 4rem;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards for larger screens */
+}
+
+/* For medium screens (tablets and smaller desktops) */
+@media (max-width: 1024px) {
+    .container-data {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards */
+    }
+
+    .card-data {
+        padding-inline: 20px;
+    }
+}
+
+/* For smaller screens (mobile phones) */
+@media (max-width: 768px) {
+    .container-data {
+        grid-template-columns: 1fr; /* 1 card */
+    }
+}
+      
+
+
+ /* Zed Css*/
+
+/* General Styles */
+
+
+/* Dropdown Icon */
+.dropdown-icon {
+    display: inline-block;
+    font-size: 16px; /* Adjust size as needed */
+    color: #FFFFFF; /* Adjust color as needed */
+    margin-left: 8px; /* Space between text and icon */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.tale_icon {
+    color: #000 !important;
+}
+
+.dropdown-icon.rotated {
+    transform: rotate(180deg); /* Rotate icon when dropdown is open */
+}
+
+
+/* Hero Image */
+.hero-image {
+    background-image: url('/images/hero_img.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    background-size: cover;
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+ .hero-text h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .hero-text p {
+        text-align:justify-all;
+        margin: 5px 0 0;
+        color:#FFFFFF;
+        font-size: 1rem;
+        max-width: 60%;
+    }
+
+/* Info Section */
+.info-section {
+    padding: 20px;
+    background-color: white;
+}
+
+.info-section_objective {
+    padding: 20px;
+    background-color: #F5F5F5;
+}
+
+.info-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.info-content_objective {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: #F5F5F5;
+}
+
+.info-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.blockheading {
+    color: #F97316;
+}
+
+.info-content h2 {
+    margin: 0 10px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.content-wrapper {
+    text-align:justify;
+    display: flex;
+    width: 100%;
+    padding: 5px;
+}
+
+.zed-content {
+    text-align: justify;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.zed-content-objective {
+    text-align:justify;
+    flex: 1;
+    padding-left: 20px;
+}
+
+.zed-content .description {
+    text-align: justify;
+    color: #92929D;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.zed-content-objective .description {
+    text-align: justify;
+    color: #92929D;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.info-image {
+    flex: 1;
+    max-width: 500px;
+    height: auto;
+    overflow: hidden;
+}
+
+    .info-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+.apply-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #F97316;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    .apply-button:hover {
+        background-color: #0056b3;
+    }
+
+.table_box {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Equivalent to #00000010% */
+    width: 100%;
+    margin-block: 20px;
+    background-color: #FFFFFF;
+}
+
+.table_header {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding-inline: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Dropdown Group Styling */
+.dropdown_grp {
+    display: flex;
+    gap: 30px; /* Adjust the space between dropdowns */
+    padding-inline: 10px;
+    margin-inline: 20px; /* Add some margin around the dropdown group */
+}
+/* Dropdown Container */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Dropdown Styling */
+.rampdropdown {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    width: 100%;
+}
+
+/* Dropdown Icons */
+.dropdown-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    display: none; /* Initially hidden */
+}
+
+/* Show the open icon by default */
+.open-icon {
+    display: inline-block;
+}
+
+.table_data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+ 
+    .table_data  td {
+        color: #030203;
+    }
+
+    .table_data  th {
+        color: #898889;
+        border-bottom: 1px solid #E9E7EC;
+    }
+
+    .table_data tr:hover {
+        background-color: #f1f1f1;
+    }
+
+.enroll-btn, .register-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.enroll-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.register-btn {
+    background-color: #F97316;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .register-btn:hover {
+        background-color: #e55c10;
+    }
+
+.registration-closed {
+    color: #F97316;
+    font-weight: bold;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .zed-content-objectiv h3 {
+        font-size: 1.4rem;
+    }
+
+    .info-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .info-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        font-size: 0.7rem;
+    }
+   
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-section {
+        padding: 5px;
+    }
+
+    .info-section_objective {
+        padding: 10px;
+    }
+
+    .table_data {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 5px 0;
+        font-size: 10px;
+        text-align: left;
+    }
+        .register-btn {
+        background-color: #F97316;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 10px;
+    }
+  /*  .row {
+        flex-direction: column;
+        padding-left: 20px;
+    }*/
+
+    .table_header {
+        flex-direction: column;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+   
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+   /* .row {
+        flex-direction: column;
+        padding-left: 20px;
+    }*/
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+
+    .row {
+        flex-direction: row;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width:1020px) {
+  
+    .content-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
+
+
+  
+
+    
+

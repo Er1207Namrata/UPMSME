@@ -1,0 +1,190 @@
+﻿@model MSME.Models.Monitoring.ZedMonitoringModel
+@{
+    ViewData["Title"] = "ZED Monitoring";
+    Layout = "_LayoutAdmin";
+}
+<div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Monitoring & Evaluation : </h2>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                @*<div>
+                <h6 class="card-title mb-1">Create State</h6>
+                <hr>
+                </div>*@
+
+                <form asp-action="Index" asp-controller="Monitoring" method="post">
+                    <div class="row">
+                        @*  <div asp-validation-summary="ModelOnly" class="text-danger">  </div> *@
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <p> Enhancing participation and implementation of the ZED Scheme</p>
+                                @* <label asp-for="RAMPId"> </label><span class="tx-danger"> *</span>
+                                <input type="text" value="@Model.RAMPName" class="form-control" readonly />
+                                <span asp-validation-for="RAMPId" class="text-danger"></span>
+                                <input type="hidden" asp-for="RAMPId" value="@Model.RAMPId" /> *@
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <p> Enhancing participation and implementation of the ZED Scheme</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                @*   <label asp-for="EnterpriseName"> </label><span class="tx-danger"> *</span> *@
+
+                                <label>
+                                    Target Setting – Year/month, District and MSME unit-wise targets for certifications
+                                </label>
+
+                                <select asp-for="ForYear" class="form-control">
+                                    <option value="">--Please Select--</option>
+                                    <option value="2024-25">2024-25</option>
+                                    <option value="2023-24">2023-24</option>
+                                    <option value="2022-23">2022-23</option>
+                                    <option value="2021-22">2021-22</option>
+                                    <option value="2020-21">2020-21</option>
+
+                                </select>
+                                @* <span asp-validation-for="EnterpriseName" class="text-danger"></span> *@
+                            </div>
+                            <div class="form-group">
+                                @*   <label asp-for="EnterpriseName"> </label><span class="tx-danger"> *</span> *@
+
+
+
+                                <select asp-for="ForMonth" class="form-control">
+                                    <option value="">--Please Select--</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+
+
+                                </select>
+                                @* <span asp-validation-for="EnterpriseName" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>   MSME unit-wise targets for certifications  </label>@* <span class="tx-danger"> *</span> *@
+                                <input type="text" class="form-control" />@* asp-for="Address" *@
+                                @*  <span asp-validation-for="Address" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>  Finalize ZED Workshop Calendar </label>@* <span class="tx-danger"> *</span> *@
+                                <select asp-for="IsZedWorkshopCalendarFinalisedYN" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                                @* <span asp-validation-for="ZoneId" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <p> OUTREACH, WORKSHOPS AND CERTIFICATION</p>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>  Create widespread awareness about the ZED Scheme </label>@* <span class="tx-danger"> *</span> *@
+                                <select asp-for="ZedAwarenessSpreadYN" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                                @*  <span asp-validation-for="IndustryType" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>   Organise ZED Workshops</label>@* <span class="tx-danger"> *</span> *@
+                                <input type="text" asp-for="OrganisedZedWorkshops" class="form-control" />
+                                @*  <span asp-validation-for="ProductType" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>   ZED certification awarded to MSMEs</label>@* <span class="tx-danger"> *</span> *@
+                                <input type="text" asp-for="TotZedCertAwarded" class="form-control" />
+                                @*   <span asp-validation-for="AuthorizedPerson" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> Submission of report, UC, invoices, etc. after the completion of Workshop</label>@* <span class="tx-danger"> *</span> *@
+                                <select asp-for="SubmissionRepUCInvcYN" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                                @*  <span asp-validation-for="Designation" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> UPSIC through SPIU to validate the report, UC/bills/invoices and release funds </label><span class="tx-danger"> *</span>
+                                <input type="text" asp-for="ReportsBillsInvcValidatedYN" class="form-control" />
+                                @* <span asp-validation-for="PhoneNo" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                      
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label> </label><span class="tx-danger"> *</span>
+
+                                <select asp-for="ReportsBillsInvcValidatedYN" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+
+                                @*  <span asp-validation-for="Gender" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Funds disbursed per ZED Workhsops </label><span class="tx-danger"> *</span>
+                                <input type="text" asp-for="FundDisbursementPerWorkshop" class="form-control" />
+
+                                @*   <span asp-validation-for="Category" class="text-danger"></span> *@
+                                @* <input type="submit" class="btn btn-Primary" style="background-color:cornflowerblue" asp-action="Index" asp-controller="Monitoring" /> formnovalidate  *@
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+}
+

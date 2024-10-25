@@ -1,0 +1,296 @@
+@media only screen and (max-width:1300px) {
+	.banner-section .banner-right {
+		max-width: 480px;
+		right: 0;
+	}
+	.banner-section .banner-right .image-block img {
+		width: 45%;
+	}
+}
+
+@media only screen and (max-width:1160px) {
+	.about-ramp .ramp-slider .ramp-box .box-cnt {
+		padding: 20px 15px 80px;
+	}
+	.about-ramp .ramp-slider .ramp-box .box-cnt .icon {
+		margin-top: 0;
+	}
+	.about-ramp .ramp-slider .ramp-box .box-cnt .cnt {
+		margin-top: 15px;
+	}
+	.about-ramp .ramp-slider .ramp-box .box-cnt .cnt h3 {
+		font-size: 20px;
+		line-height: 26px;
+	}
+	.about-ramp .ramp-slider .ramp-box .box-cnt .cnt p {
+		margin-top: 10px;
+	}
+	.about-ramp .ramp-slider .ramp-box .box-cnt .btn-outer {
+		bottom: 15px;
+		padding: 0 15px;
+	}
+	.nav-outer .navbar .navbar-nav > .nav-item {
+		margin-left: 13px;
+	}
+
+}
+
+
+@media only screen and (max-width:991px) {
+	.mt80 {
+	    margin-top: 50px;
+	}
+	header .header-right .language {
+		position: absolute;
+        right: 215px;
+        top: 97px;
+        z-index: 1;
+        margin: 0;
+	}
+	header .header-right .language a, header .header-right .language a:hover {
+		color: #fff;
+	}
+	header .header-right .search {
+		position: absolute;
+        right: 125px;
+        top: 97px;
+        z-index: 1;
+        margin-top: 0;
+	}
+	header .header-right .search a, header .header-right .search a:hover {
+		color: #fff;
+	}
+	header .header-right .whatsapp {
+		position: absolute;
+        right: 15px;
+        top: 94px;
+        margin-top: 0;
+        z-index: 1;
+	}
+	header .header-right .whatsapp span {
+		display: none;
+	}
+	header .header-right .whatsapp a {
+		color: #fff;
+	}
+	header .header-right .whatsapp a i {
+		color: #fff;
+	}
+	.mob-hide {
+		display: none !important;
+	}
+	.desktop-hide {
+	    display: inline-block !important;
+	}
+	.nav-outer {
+		padding: 5px 0;
+	}
+	.nav-outer .navbar .container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.nav-outer .navbar .navbar-toggler {
+		border: none;
+		padding: 0;
+		margin: 0;
+		outline: none !important;
+		box-shadow: none;
+	}
+	.nav-outer .navbar .navbar-nav {
+		padding-top: 20px;
+	}
+	.nav-outer .navbar .navbar-nav > .nav-item {
+		margin-left: 0;
+		border-top: 1px solid rgba(254,254,254,0.3);
+	}
+	.nav-outer .navbar .navbar-nav > .nav-item > .nav-link {
+		padding: 8px 0;
+	}
+	header .header-right .header-icons img:last-child {
+		margin-right: 0;
+	}
+	.banner-section .banner-right .image-block .img-cnt h2 {
+		font-size: 18px;
+		line-height: 28px;
+	}
+	.banner-section .banner-right .image-block .img-cnt p {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.banner-section .banner-right {
+		max-width: 380px;
+	}
+	.banner-section .banner-right:before {
+		right: -80px;
+	}
+	.heading h2 {
+		font-size: 16px;
+		line-height: 20px;
+	}
+	.heading h3 {
+		font-size: 30px;
+		line-height: 38px;
+	}
+	.about-msme .about-cnt p {
+		margin-top: 15px;
+	}
+	.about-ramp .about-cnt .heading {
+		width: 100%;
+	}
+	.about-ramp .about-cnt p {
+		margin-top: 15px;
+	}
+	.about-ramp .ramp-slider {
+		margin-top: 20px;
+	}
+	footer .footer-top {
+		margin: 20px 0;
+	}
+	footer .footer-top .footer-box .footer-logo {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	footer {
+		margin-top: 60px;
+	}
+
+}
+
+@media only screen and (max-width:767px) {
+	.mt80 {
+	    margin-top: 40px;
+	}
+	header {
+		padding: 5px 0;
+	}
+    .heading h2 {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .heading h3 {
+		font-size: 24px;
+		line-height: 32px;
+		margin-top: 3px;
+	}
+	header logo img {
+		max-width: 120px;
+	}
+	header .header-right .header-icons img {
+		max-height: 44px;
+		margin: 0 0 0 4px;
+	}
+	header .header-right .language {
+		top: 70px;
+		right: 164px;
+	}
+	header .header-right .search {
+		top: 66px;
+		margin-left: 0;
+	}
+	header .header-right .whatsapp {
+		top: 68px;
+	}
+	header .header-right .search a {
+		font-size: 0px;
+	}
+	header .header-right .search a i {
+		font-size: 16px;
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		line-height: 24px;
+	}
+	.banner-section .banner-outer .banner img {
+		height: 400px;
+		object-fit: cover;
+	}
+	.about-msme .about-image {
+		display: inline-block;
+		width: 100%;
+		vertical-align: top;
+		text-align: center;
+		margin-top: 20px;
+	}
+	.about-msme .about-image img {
+		display: inline-block;
+	}
+	.tab-section .tabs ul li a {
+		padding: 7px 5px;
+	}
+	.tab-section {
+		margin-top: 20px;
+	}
+	.tab-section .tab-content {
+		margin-top: 20px;
+	}
+
+	footer {
+		margin-top: 40px;
+	}
+	footer .footer-top .footer-box .contact-block  {
+		display: flex;
+		margin-bottom: 20px;
+	}
+	footer .footer-top .footer-box .contact-block .contact-box {
+		width: 50%;
+		padding-right: 10px;
+		margin-top: 10px;
+	}
+	footer .footer-top .footer-box h2 {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	footer .footer-top .footer-box .contact-block .contact-box i {
+		width: 26px;
+		height: 26px;
+		font-size: 12px;
+		padding: 3px 0px;
+	}
+	footer .footer-top .footer-box .contact-block .contact-box .contact {
+		width: calc(100% - 26px);
+		padding-left: 5px;
+		font-size: 12px;
+		line-height: 18px;
+	}
+	footer .footer-top .footer-box .contact-block .contact-box .contact span {
+		font-size: 11px;
+	}
+	footer .footer-top .footer-box ul {
+		margin-top: 2px;
+	}
+	footer .footer-top .footer-box ul li a {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	footer .footer-bootom .other-links a {
+		font-size: 12px;
+		line-height: 16px;
+		margin: 0 5px;
+	}
+	footer .footer-copyright {
+		font-size: 12px;
+		line-height: 18px;
+		padding: 10px 0;
+	}
+}
+
+@media only screen and (max-width:575px) {
+	.tab-section .tabs ul {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.tab-section .tab-content {
+		margin-top: 5px;
+	}
+}
+
+@media only screen and (max-width:359px) {
+	header .header-right .header-icons img {
+		margin: 0 0 0 1px;
+	}
+}
+
+
+
+
+

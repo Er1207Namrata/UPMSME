@@ -1,0 +1,427 @@
+﻿@model MSME.Models.Home.RegistrationModel
+@{
+    ViewData["Title"] = "Registration Form";
+
+
+}
+<link href="~/css/anuj.css" rel="stylesheet" />
+<script src="~/MainAssets/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/MainAssets/assets/libs/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+<link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+@if (TempData["success"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Success!", '@TempData["success"]', "success");
+        };
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Failed!", '@TempData["error"]', "error");
+        };
+    </script>
+}
+@if (TempData["warning"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            swal("Warning!", '@TempData["warning"]', "warning");
+        };
+    </script>
+}
+
+@*upper case*@
+<script type="text/javascript">
+    function upperCaseF(a) {
+        setTimeout(function () {
+            a.value = a.value.toUpperCase();
+        }, 1);
+    }
+</script>
+
+<script type="text/javascript">
+    function checkIsZEDCertification() {
+        if ($("#IsZEDCertification").val() == "YES") {
+            // $('#IsZEDCertificationYear').val('');
+            // $('#IsZEDCertificationType').val('');
+            $('#divIsZEDCertificationYear').css('display', 'block');
+            $('#divIsZEDCertificationType').css('display', 'block');
+
+        }
+        else {
+            $('#IsZEDCertificationYear').val('');
+            $('#IsZEDCertificationType').val('');
+            $('#divIsZEDCertificationYear').css('display', 'none');
+            $('#divIsZEDCertificationType').css('display', 'none');
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function checkIsExporter() {
+        if ($("#IsExporter").val() == "YES") {
+            // $('#ExportedProduct').val('');
+            // $('#ExportedCountry').val('');
+            $('#divExportedProduct').css('display', 'block');
+            $('#divExportedCountry').css('display', 'block');
+
+        }
+        else {
+            $('#ExportedProduct').val('');
+            $('#ExportedCountry').val('');
+            $('#divExportedProduct').css('display', 'none');
+            $('#divExportedCountry').css('display', 'none');
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        checkIsZEDCertification();
+        checkIsExporter();
+        checkRegistrationType();
+    });
+</script>
+
+<!--check registration Type-->
+<script type="text/javascript">
+    function checkRegistrationType() {
+        if ($("#RegistrationType").val() == "MSME") {
+            // $('#ExportedProduct').val('');
+            // $('#ExportedCountry').val('');
+            $('#divMSMERegistration').css('display', 'block');
+            $('#divOtherRegistration').css('display', 'none');
+            $('#divButton').css('display', 'block');
+        }
+        else if ($("#RegistrationType").val() == "OTHER") {
+            $('#divMSMERegistration').css('display', 'none');
+            $('#divOtherRegistration').css('display', 'block');
+            $('#divButton').css('display', 'block');
+        }
+        else {
+            $('#divMSMERegistration').css('display', 'none');
+            $('#divOtherRegistration').css('display', 'none');
+            $('#divButton').css('display', 'none');
+
+        }
+
+    }
+</script>
+
+
+
+<div class="container-new">
+    <div class="row_1 justify-content-center">
+        <div class="col-lg-12">
+            <div class="card shadow-lg border-0 rounded-lg mt-4">
+
+                <div class="card-body">
+                    <form method="post" asp-controller="Home" asp-action="Registration">
+                        <div class="row_1">
+                            <div class="col-md-12" style="padding-left:0px;">
+                                <div class="form-group-new">
+                                    <label asp-for="RegistrationType" class="large"></label>
+                                    <select asp-for="RegistrationType" class="form-control-new" onchange="checkRegistrationType()" style="width:250px;">
+                                        <option value="">--Please Select--</option>
+                                        <option value="MSME">MSME Registration</option>
+                                        <option value="OTHER">Other Registration</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="RegistrationType"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--MSME Registration-->
+                        <div class="row_1 mb-4-new" id="divMSMERegistration" style="display:none">
+
+                            <div class="col-md-12 p-3 bg-opacity-50 border border-info border-start-0 rounded" style="background-color:#fa822f;color:white; margin-left:0px; height:40px; width:100%;  ">
+                                <b>Basic Information</b>
+                            </div>
+
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="EnterpriseName" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="EnterpriseName" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Enterprise Name" maxlength="100" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="EnterpriseName"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="EnterpriseDistrictId" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    @* <input asp-for="EnterpriseDistrict" class="form-control-new" onkeydown="upperCaseF(this)" maxlength="50" /> *@
+                                    <select id="EnterpriseDistrictId" asp-for="EnterpriseDistrictId" class="form-control-new select2" asp-items="@(new SelectList(Model.EnterpriseDistrictList,"DistrictId","DistrictName"))">
+                                        <option selected="selected" value="">--Please Select-- </option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="EnterpriseDistrictId"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="EnterpriseAddress" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="EnterpriseAddress" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Address" maxlength="500" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="EnterpriseAddress"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="EnterpriseCategory" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    @*  <input asp-for="EnterpriseCategory" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+                                    <select asp-for="EnterpriseCategory" class="form-control-new">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Micro">Micro</option>
+                                        <option value="Small">Small</option>
+                                        <option value="Medium">Medium</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="EnterpriseCategory"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="IndustryType" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    @* <input asp-for="IndustryType" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+                                    <select asp-for="IndustryType" class="form-control-new">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Services">Services</option>
+                                        <option value="Retail">Retail</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IndustryType"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Sector" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Sector" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Sector" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Sector"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="UdyamRegistrationNo" class="small_1"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="UdyamRegistrationNo" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Udhyam Registration Number" maxlength="20" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="UdyamRegistrationNo"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-3 bg-opacity-50 border border-info border-start-0 rounded" style="background-color:#fa822f;color:white;margin-top:5px; height:40px; width:100%">
+                                <b>ZED Certification Information</b>
+                            </div>
+
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="IsZEDCertification" class="small"> </label><span class="tx-danger"> *</span>
+                                    @*  <input asp-for="IsZEDCertification" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+                                    <select asp-for="IsZEDCertification" class="form-control-new" onchange="checkIsZEDCertification()">
+                                        <option value="">--Please Select--</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IsZEDCertification"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new" style="display:none" id="divIsZEDCertificationYear">
+                                <div class="form-group-new">
+                                    <label asp-for="IsZEDCertificationYear" class="small"> </label>
+                                    <input asp-for="IsZEDCertificationYear" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter the ZED Certification Year" maxlength="4" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IsZEDCertificationYear"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new" style="display:none" id="divIsZEDCertificationType">
+                                <div class="form-group-new">
+                                    <label asp-for="IsZEDCertificationType" class="small"> </label>
+                                    @* <input asp-for="IsZEDCertificationType" class="form-control-new" onkeydown="upperCaseF(this)" maxlength="50" /> *@
+                                    <select asp-for="IsZEDCertificationType" class="form-control-new" onkeydown="upperCaseF(this)">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Bronze">Bronze</option>
+                                        <option value="Silver">Silver</option>
+                                        <option value="Gold">Gold</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IsZEDCertificationType"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="IncorporationYear" class="small"> </label><span class="tx-danger"> *</span>
+                                    @*  <input asp-for="IncorporationYear" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+                                    <input type="text" class="form-control" asp-for="IncorporationYear" placeholder="Enter Incorporation Year" readonly>
+
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IncorporationYear"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-3 bg-opacity-50 border border-info border-start-0 rounded" style="background-color:#fa822f;color:white;margin-top:5px; height:40px; width:100%">
+                                <b>Promoter/Entreprenuer Information</b>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_Name" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Promoter_Entreprenuer_Name" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Entreprenuer Name" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_Name"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_Contact" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Promoter_Entreprenuer_Contact" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Contact Number" maxlength="10" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_Contact"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_EmailId" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Promoter_Entreprenuer_EmailId" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Email Id" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_EmailId"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_Gender" class="small"> </label><span class="tx-danger"> *</span>
+                                    @* <input asp-for="Promoter_Entreprenuer_Gender" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+                                    <select asp-for="Promoter_Entreprenuer_Gender" class="form-control-new" onkeydown="upperCaseF(this)">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_Gender"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_Age" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Promoter_Entreprenuer_Age" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Age" maxlength="2" type="number" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_Age"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="Promoter_Entreprenuer_SocialCategory" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="Promoter_Entreprenuer_SocialCategory" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Category" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="Promoter_Entreprenuer_SocialCategory"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-3 bg-opacity-50 border border-info border-start-0 rounded" style="background-color:#fa822f;color:white;margin-left:0px;margin-top:5px; height:40px; width:100%">
+                                <b>Exporter Information</b>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="IsExporter" class="small"> </label><span class="tx-danger"> *</span>
+                                    @*  <input asp-for="IsExporter" class="form-control-new" onkeydown="upperCaseF(this)" /> *@
+
+                                    <select asp-for="IsExporter" class="form-control-new" onchange="checkIsExporter()">
+                                        <option value="">--Please Select--</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="IsExporter"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4-new" style="display:none" id="divExportedProduct">
+                                <div class="form-group-new">
+                                    <label asp-for="ExportedProduct" class="small"> </label>
+                                    <input asp-for="ExportedProduct" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Exported Product" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="ExportedProduct"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new" style="display:none" id="divExportedCountry">
+                                <div class="form-group-new">
+                                    <label asp-for="ExportedCountry" class="small"> </label>
+                                    <input asp-for="ExportedCountry" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Exported Country" maxlength="50" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="ExportedCountry"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--Other Registration-->
+                        <div class="row_1 mb-3" id="divOtherRegistration" style="display:none">
+                            <div class="col-md-12 p-3 bg-opacity-50 border border-info border-start-0 rounded" style="background-color:#fa822f;color:white;margin-left:0px; height:40px; width:100%;">
+                                <b>Basic Information</b>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="PartcipantsName" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="PartcipantsName" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Participant Name" maxlength="100" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="PartcipantsName"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="OrganisationName" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="OrganisationName" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Organization Name" maxlength="200" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="OrganisationName"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="PartcipantsDesignation" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="PartcipantsDesignation" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Designation" maxlength="100" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="PartcipantsDesignation"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="PartcipantsContact" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="PartcipantsContact" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Contact Number" maxlength="10" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="PartcipantsContact"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4-new">
+                                <div class="form-group-new">
+                                    <label asp-for="PartcipantsEmailId" class="small"> </label><span class="tx-danger"> *</span>
+                                    <input asp-for="PartcipantsEmailId" class="form-control-new" onkeydown="upperCaseF(this)" placeholder="Enter Email Id" maxlength="100" />
+                                    <span style="color:red; font-size:x-small; font-weight:bold" asp-validation-for="PartcipantsEmailId"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div style="text-align:center; display:none" id="divButton">
+                            @*<a class="btn btn-primary btn-block" href="login.html">Create Account</a>*@
+                            <input class="btn btn-warning" type="submit" value="Submit" />
+                            @*  <input type="hidden" asp-for="RegistrationType" /> *@
+                        </div>
+                        <div class="card-footer text-center py-3">
+                            @*  <div class="small"><a asp-action="Login">Have an account? Go to login</a></div> *@
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#IncorporationYear').datepicker({
+                format: 'yyyy',
+                viewMode: 'years',
+                minViewMode: 'years',
+                autoclose: true,
+                startDate: new Date(1990, 0, 1), // Start date as January 1, 1900
+                endDate: new Date(2024, 11, 31), // End date as December 31, 2024
+                beforeShowYear: function (date) {
+                    var year = date.getFullYear();
+                    return {
+                        enabled: (year >= 1990 && year <= 2024)
+                    };
+                }
+            });
+        });
+    </script>
+}

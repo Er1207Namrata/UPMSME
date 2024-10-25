@@ -1,0 +1,85 @@
+﻿@using MSME.Models.Masters
+@model IEnumerable<TrainingModel>
+@{
+    ViewData["title"] = "Index";
+}
+<section>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Training Calendar</h1>
+
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="table_box border rounded-4">
+
+            <div class="table-responsive-sm">
+
+                @*   <h2>Training Schedule</h2>  *@
+
+                @if (Model != null && Model.Count() > 0)
+                {
+                    <table id="exportexample" class="table text-wrap w-100 table-sm">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>
+                                    @*  @Html.DisplayNameFor(c => c.Location) *@
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(c => c.Venue)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(c => c.Date)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(c => c.Time)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(c => c.UploadDocPath)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(c => c.CreatedDate)
+                                </th>
+                                @*   <th>
+                            Action
+                            </th> *@
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @{
+                                int sno = 0;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @{
+                                            sno++;
+                                        }
+                                        @sno
+                                    </td>
+                                    <td>@* @item.Location *@</td>
+                                    <td>@item.Venue</td>
+                                    <td>@item.Date.ToString("dd-MM-yyyy")</td>
+                                    <td>@item.Time</td>
+                                    <td>
+                                        <form>
+                                            <button class="register-btn" asp-action="Login" asp-controller="Home">Register</button>
+                                        </form>
+                                    </td>
+                                    <td>@item.CreatedDate</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+</section>
+
+

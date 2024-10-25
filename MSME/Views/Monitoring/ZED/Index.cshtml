@@ -1,0 +1,225 @@
+﻿@model MSME.Models.Monitoring.ZedMonitoringModel
+@{
+    ViewData["Title"] = "ZED Monitoring";
+    Layout = "_LayoutAdmin";
+}
+<link href="~/css/style.css" rel="stylesheet" />
+<style>
+    .tblHeading {
+        background-color: orange;
+    }
+
+</style>
+
+<div class="about_us">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <div class="table_border border rounded-4 overflow-hidden">
+                    <form asp-action="Index" asp-controller="Monitoring" method="post">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="tblHeading py-3 fs-6 text-center text-Black">
+                                            Enhancing participation and implementation of the ZED Scheme
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <th colspan="3" class="bg-light-primary">
+                                            PROJECT PLANNING AND EMPANELMENT WITH TA
+                                        </th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Target Setting – Year/month, District and MSME unit-wise targets for
+                                            certifications
+                                        </td>
+
+                                        <td style="text-align:center;">
+                                            Year
+                                        </td>
+
+                                        <td style="text-align:center;">
+                                            Month
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="ForYear" class="form-control">
+                                                <option value="">--Please Select--</option>
+                                                <option value="2024-25">2024-25</option>
+                                                <option value="2023-24">2023-24</option>
+                                                <option value="2022-23">2022-23</option>
+                                                <option value="2021-22">2021-22</option>
+                                                <option value="2020-21">2020-21</option>
+
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="ForMonth" class="form-control">
+                                                <option value="">--Please Select--</option>
+                                                <option value="January">January</option>
+                                                <option value="February">February</option>
+                                                <option value="March">March</option>
+                                                <option value="April">April</option>
+                                                <option value="May">May</option>
+                                                <option value="June">June</option>
+                                                <option value="July">July</option>
+                                                <option value="August">August</option>
+                                                <option value="September">September</option>
+                                                <option value="October">October</option>
+                                                <option value="November">November</option>
+                                                <option value="December">December</option>
+
+
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            MSME unit-wise targets for certifications
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control" />
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Finalize ZED Workshop Calendar
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="IsZedWorkshopCalendarFinalisedYN" class="form-control">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="3" class="bg-light-primary">
+                                            OUTREACH, WORKSHOPS AND CERTIFICATION
+                                        </th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Create widespread awareness about the ZED Scheme
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="ZedAwarenessSpreadYN" class="form-control">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Organise ZED Workshops
+                                        </td>
+
+                                        <td>
+                                            <input type="text" asp-for="OrganisedZedWorkshops" class="form-control" />
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            ZED certification awarded to MSMEs
+                                        </td>
+
+                                        <td>
+                                            <input type="text" asp-for="TotZedCertAwarded" class="form-control" />
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" class="bg-light-primary">
+                                            REPORTING, MONITORING AND FUND DISBURSEMENT
+                                        </th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Submission of report, UC, invoices, etc. after the completion of Workshop
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="SubmissionRepUCInvcYN" class="form-control">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Validation Done for the reports, UC/bills/invoices and release funds
+                                        </td>
+
+                                        <td>
+                                            <select asp-for="ReportsBillsInvcValidatedYN" class="form-control">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Funds disbursed per ZED Workhsops
+                                        </td>
+
+                                        <td>
+                                            <input type="text" asp-for="FundDisbursementPerWorkshop" class="form-control" />
+                                        </td>
+
+                                        <td>
+                                            <input type="submit" class="btn btn-primary py-1 px-4" value="Submit" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
